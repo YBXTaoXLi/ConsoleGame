@@ -1,0 +1,4 @@
+iID	sname	dweight	dprobability	drestoreHunger	drestoreMood	sdescribe
+0	小麦	0.1	0.5		0.5		-10		一小捧小麦，可以用于制作面粉也可以用于直接使用。
+1	面粉	1	0.2		1		-5		一袋面粉，可以用于制作各种食物。
+2	面包	0.5	0.05		20		-1		一种无味的面食。

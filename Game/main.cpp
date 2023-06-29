@@ -30,6 +30,7 @@ int main()
 	FileReadWrite fileReadWrite{};
 	fileReadWrite.setData();
 	ItemData itemData{fileReadWrite.getData()};
+	itemData.viewAll();
 	/*srand(time(nullptr));
 	Interface interface{};
 	switch (interface.getChoose()) {

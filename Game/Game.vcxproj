@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -128,18 +128,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FileReadWrite.cpp" />
-    <ClCompile Include="Houses.cpp" />
+    <ClCompile Include="FoodData.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="ItemData.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Operate.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Thing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileReadWrite.h" />
-    <ClInclude Include="Houses.h" />
+    <ClInclude Include="FoodData.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="ItemData.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="Operate.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Thing.h" />

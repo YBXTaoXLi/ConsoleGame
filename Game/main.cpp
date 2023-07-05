@@ -1,40 +1,42 @@
 ﻿#include<fstream>
 #include <iostream>
-#include "Houses.h"
+#include "Map.h"
 #include "Interface.h"
 #include "Random.h"
 #include "Thing.h"
 #include "FileReadWrite.h"
 #include "ItemData.h"
-
+#include "FoodData.h"
+#include "Operate.h"
+#define MAP_WIDTH 20//地图宽度
+#define ITEM_DATA "../Game/Test.txt"//物品列表
+#define FOOD_DATA "../Game/FoodTest.txt"//食物列表
+#define MAP_DATA  "../Game/MapTest.txt"//地图列表
 int main()
 {
-	/*std::ofstream ofs;
-	ofs.open("../Game/test.txt", std::ios::out);
-	if (!ofs.is_open())
-	{
-		std::cout << "链接文件失败" << std::endl;
-	}
-	ofs << "0\t小麦" << std::endl;
-	ofs << "1\t面粉" << std::endl;
-	ofs << "2\t面包" << std::endl;
-	ofs.close();
-	char buf[1024]={ 0 };
-	int b = 0;
-	std::ifstream fin;
-	fin.open("../Game/test.txt", std::ios::out);
-	while (fin.getline(buf, sizeof(buf))) {
-		std::cout << buf << std::endl;
-	}
-	return 0;*/
 	FileReadWrite fileReadWrite{};
-	fileReadWrite.setData();
-	ItemData itemData{fileReadWrite.getData()};
-	itemData.viewAll();
-	/*srand(time(nullptr));
-	Interface interface{};
+	Operate operate{};
+	Interface interface {};
+	fileReadWrite.setData(FOOD_DATA);
+	FoodData foodData{fileReadWrite.getData()};
+	fileReadWrite.setMapData(MAP_DATA);
+	Map map{fileReadWrite.getMapData()};
+	srand(time(nullptr));
+	interface.mainPrintf();
 	switch (interface.getChoose()) {
 	case 1:
+		while (true)
+		{
+			system("cls");
+			interface.mapPrint(map.getMap(1), MAP_WIDTH);
+			interface.choosePrint();
+			operate.setOperate();
+			if (operate.getOperate()=="0")
+			{
+				break;
+			}
+			operate.mapOperate(map.getMap(1), operate.getOperate(), MAP_WIDTH);
+		}
 		break;
 	case 2:
 		break;
@@ -42,5 +44,5 @@ int main()
 		return 0;
 		break;
 	}
-	return -1;*/
+	return -1;
 }

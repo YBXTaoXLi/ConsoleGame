@@ -1,11 +1,11 @@
 #include "ItemData.h"
 
-ItemData::ItemData(std::vector<std::string>& writeData)
+ItemData::ItemData(std::vector<std::string>* writeData)
 {
 	int i = 0;
 	int j = 0;
 	int k = 0;
-	std::string buf = writeData[i];
+	std::string buf = (*writeData)[i];
 	std::string sbuf;
 	Data databuf;
 	i++;
@@ -16,7 +16,7 @@ ItemData::ItemData(std::vector<std::string>& writeData)
 			sbuf += buf[j];
 			j++;
 		}
-		while (buf[j] == '\t')
+		while (buf[j] == '\t' && j < buf.size())
 		{
 			j++;
 		}
@@ -44,9 +44,9 @@ ItemData::ItemData(std::vector<std::string>& writeData)
 	j = 0;
 	sbuf = "";
 	//std::cout << writeData.size() << std::endl;
-	while (i < writeData.size())
+	while (i < (*writeData).size())
 	{
-		buf = writeData[i];
+		buf = (*writeData)[i];
 		while (j < buf.size())
 		{
 			while (buf[j] != '\t' && j < buf.size())

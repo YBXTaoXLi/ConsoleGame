@@ -38,7 +38,7 @@ class ItemData
 	std::vector<std::string> name;//´æ´¢±äÁ¿Ãû×Ö
 	std::list<Data> data;
 public:
-	ItemData(std::vector<std::string>& writeData);
+	ItemData(std::vector<std::string>* writeData);
 	~ItemData();
 	void viewAll();
 };

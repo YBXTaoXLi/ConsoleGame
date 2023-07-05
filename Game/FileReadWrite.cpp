@@ -1,6 +1,6 @@
 #include<string>
 #include "FileReadWrite.h"
-#define dataRelativePath "../Game/test.txt"
+
 FileReadWrite::FileReadWrite()
 {
 	
@@ -10,14 +10,13 @@ FileReadWrite::~FileReadWrite()
 {
 }
 
-void FileReadWrite::setData()
+void FileReadWrite::setData(std::string path)
 {
 	std::string buf;
-	std::ifstream ifs(dataRelativePath);
+	std::ifstream ifs(path.c_str());
 	if (!ifs.is_open()) {
 		std::cout << "链接文件失败" << std::endl;
 	}
-	
 	while (std::getline(ifs, buf))
 	{
 		data.push_back(buf);
@@ -26,11 +25,38 @@ void FileReadWrite::setData()
 	for (i = data.begin(); i != data.end(); ++i) {
 		std::cout << *i << std::endl;
 	}*/
+	ifs.close();
 }
 
-std::vector<std::string>& FileReadWrite::getData()
+void FileReadWrite::setMapData(std::string path)
 {
-	return data;
+	std::string buf;
+	std::string mapbuf;
+	std::ifstream ifs(path.c_str());
+	if (!ifs.is_open()) {
+		std::cout << "链接文件失败" << std::endl;
+	}
+	while (std::getline(ifs, buf))
+	{
+		buf += " ";
+		mapbuf += buf;
+	}
+	mapData.push_back(mapbuf);
+	/*std::list<std::string>::iterator i;
+	for (i = mapData.begin(); i != mapData.end(); ++i) {
+		std::cout << *i << std::endl;
+	}*/
+	ifs.close();
+}
+
+std::vector<std::string>* FileReadWrite::getData()
+{
+	return &data;
+}
+
+std::list<std::string>* FileReadWrite::getMapData()
+{
+	return &mapData;
 }
 
 
